@@ -1,0 +1,57 @@
+@import "base/reset";
+@import "base/colors";
+@import "abstracts/mixins";
+
+body {
+    background-image: url(./images/blur-clean.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 1000;
+}
+
+.wrap {
+    height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.square {
+    @include square-style;
+    transform: translateY(calc(-100vh));
+    animation: fall 1.5s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(calc(-100vh));
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.square:nth-of-type(1) {
+    background-color: $bgcolor1;
+}
+
+.square:nth-of-type(2) {
+    background-color: $bgcolor2;
+}
+
+.square:nth-of-type(3) {
+    background-color: $bgcolor3;
+}
+
+.square:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.square:nth-child(3) {
+    animation-delay: 3s;
+}
